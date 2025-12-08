@@ -4,4 +4,6 @@
 *.bin
 *.hex
 
+*.axf
+
 .DS_Store
