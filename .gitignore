@@ -1,9 +1,11 @@
 *.o
+*.os
 *.obj
 
 *.bin
 *.hex
 
 *.axf
+build/
 
 .DS_Store
