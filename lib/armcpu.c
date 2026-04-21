@@ -18,7 +18,7 @@ void enable_fiq()
     __asm__ ("POP   {r0, r1}");
 }
 
-void disable_iiq()
+void disable_irq()
 {
     __asm__ ("PUSH  {r0, r1}");
     __asm__ ("MRS   r0, cpsr");

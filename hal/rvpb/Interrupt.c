@@ -2,6 +2,7 @@
 #include "Interrupt.h"
 #include "HalInterrupt.h"
 #include "memio.h"
+#include "armcpu.h"
 
 extern volatile GicCput_t* GicCpu;
 extern volatile GicDist_t* GicDist;
