@@ -34,12 +34,15 @@ LDFLAGS = -nostartfiles -nostdlib -nodefaultlibs -static -lgcc
 navilos = build/navilos.axf
 navilos_bin = build/navilos.bin
 
-.PHONY: all clean run debug gdb
+.PHONY: all clean run debug gdb setup
 
 all: $(navilos)
 
 clean:
 	@rm -fr build
+
+setup:
+	./scripts/setup.sh
 
 run: $(navilos)
 	qemu-system-arm -M realview-pb-a8 -kernel $(navilos) -nographic

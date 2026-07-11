@@ -4,7 +4,37 @@ This project is based on the "Embedded OS development project" for the ARM archi
 
 ### Prerequisites
 
-Install these tools before building or debugging.
+Install the required tools with the setup script.
+
+```sh
+make setup
+```
+
+This script supports:
+
+```text
+Ubuntu / Debian  apt
+macOS            Homebrew
+```
+
+It installs the ARM cross compiler, QEMU, make, and GDB support where available.
+
+Manual installation commands are also shown below.
+
+Ubuntu / Debian:
+
+```sh
+sudo apt-get update
+sudo apt-get install -y gcc-arm-none-eabi gdb-multiarch make qemu-system-arm
+```
+
+macOS:
+
+```sh
+brew install arm-none-eabi-gcc gdb make qemu
+```
+
+After installation, these commands should be available.
 
 ```sh
 arm-none-eabi-gcc
