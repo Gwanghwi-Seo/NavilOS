@@ -35,11 +35,12 @@ install_ubuntu_debian() {
     SUDO="$(sudo_cmd)"
 
     info "Detected apt-based Linux"
-    info "Installing ARM toolchain, QEMU, make, and GDB support"
+    info "Installing ARM toolchain, QEMU, make, Bear, and GDB support"
 
     if [ -n "$SUDO" ]; then
         $SUDO apt-get update
         $SUDO apt-get install -y \
+            bear \
             gcc-arm-none-eabi \
             gdb-multiarch \
             make \
@@ -47,6 +48,7 @@ install_ubuntu_debian() {
     else
         apt-get update
         apt-get install -y \
+            bear \
             gcc-arm-none-eabi \
             gdb-multiarch \
             make \
@@ -61,9 +63,10 @@ install_macos() {
         fail "Homebrew is not installed. Install it first: https://brew.sh"
     fi
 
-    info "Installing ARM toolchain, QEMU, make, and GDB support"
+    info "Installing ARM toolchain, QEMU, make, Bear, and GDB support"
     brew install \
         arm-none-eabi-gcc \
+        bear \
         gdb \
         make \
         qemu
@@ -95,7 +98,13 @@ verify_tools() {
     verify_command arm-none-eabi-objcopy
     verify_command qemu-system-arm
     verify_command make
+    verify_command bear
     verify_gdb
+}
+
+print_next_steps() {
+    info "For Cursor/clangd IDE support, run: make compile_commands"
+    info "compile_commands.json is generated locally and ignored by Git"
 }
 
 main() {
@@ -116,6 +125,7 @@ main() {
     esac
 
     verify_tools
+    print_next_steps
     info "Setup complete"
 }
 
