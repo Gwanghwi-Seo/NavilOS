@@ -25,5 +25,6 @@ typedef void (*KernelTaskFunc_t)(void);
 
 void Kernel_task_init(void);
 uint32_t Kernel_task_create(KernelTaskFunc_t startFunc);
+static KernelTcb_t* Scheduler_round_robin_algorithm(void);
 
 #endif /* KERNEL_TASK_H_ */
